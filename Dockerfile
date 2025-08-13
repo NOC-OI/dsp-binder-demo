@@ -12,4 +12,7 @@ RUN \
     xargs apt-get -y install < /tmp/apt/base.txt && \
     yes | unminimize ; exit 0 && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/* && \
+    rm -rf /var/lib/apt/lists/*
+
+
+
