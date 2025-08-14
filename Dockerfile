@@ -42,7 +42,4 @@ RUN \
     xargs apt-get -y install < /tmp/apt/christmas-social.txt && \
     for i in `ls /usr/games | grep -v xsnow` ; do ln -s /usr/games/$i /usr/bin/$i ; done
 
-# add common python libraries (e.g. pangeo stack) 
-FROM with-desktop AS with-python-libs
-RUN conda env update -n base -f /tmp/conda-envs/base.yml && conda env update -n base -f /tmp/conda-envs/pangeo-lite.yml
 
