@@ -1,0 +1,11 @@
+#!/bin/bash
+#cd "$HOME"
+#ps aux | grep websock | grep -o "heartbeat=30 [0-9]*" | awk '{print $2}'  | head -1 > $JUPYTERHUB_ROOT_DIR/.vncport
+#run the user's own xstartup if they have one
+if [ -f "$HOME/.vnc/xstartup" ] ; then 
+    echo "Running user's xstartup from ~/.vnc/xstartup"  > /dev/stderr
+    source $HOME/.vnc/xstartup
+    exit
+fi
+exec /usr/bin/jwm
+

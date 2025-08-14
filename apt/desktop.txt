@@ -1,0 +1,9 @@
+dbus-x11
+xorg
+tigervnc-standalone-server
+tigervnc-xorg-extension
+websockify
+jwm
+xterm
+gnuplot
+x11-apps

@@ -16,3 +16,27 @@ RUN \
 
 
 
+FROM base AS with-desktop
+RUN \
+    conda env update -n base -f /tmp/conda-envs/desktop.yml && \
+    install -d -m 0755 /etc/apt/keyrings && \
+    apt-get -y update && \
+    xargs apt-get -y install < /tmp/apt/desktop.txt && \
+    apt-get clean && \
+    dpkg --purge smplayer smplayer-l10n smplayer-themes mpv lxmusic lxpolkit deluge deluge-common deluge-gtk usermode xscreensaver xscreensaver-data xscreensaver-gl gnome-screensaver xmms2-plugin-vorbis xmms2-plugin-mad xmms2-plugin-id3v2 xmms2-plugin-alsa xmms2-core libxmmsclient6 libxmmsclient-glib1 && \
+    rm -rf /var/lib/apt/lists/* && \
+    chown -R jovyan:users /home/jovyan/.cache
+#    chown -R jovyan:users /home/jovyan/.gnupg
+
+# cleanup the desktop, do this as a separate run statement to make it a different layer and speed up rebuilds
+RUN \
+    sed -i 's/1680x1050/1920x880/' /opt/conda/lib/python3.11/site-packages/jupyter_remote_desktop_proxy/setup_websockify.py
+
+#override default menus and remove logout buttons and other unwanted features
+COPY gui-config/debian-menu /etc/jwm/
+COPY gui-config/system.jwmrc /etc/jwm/
+COPY gui-config/xstartup /opt/conda/lib/python3.11/site-packages/jupyter_remote_desktop_proxy/share/xstartup
+
+# add common python libraries (e.g. pangeo stack) 
+FROM with-desktop AS with-python-libs
+RUN conda env update -n base -f /tmp/conda-envs/base.yml && conda env update -n base -f /tmp/conda-envs/pangeo-lite.yml

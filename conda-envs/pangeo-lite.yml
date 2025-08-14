@@ -1,0 +1,10 @@
+#from https://github.com/pangeo-data/pangeo-docker-images/blob/master/pangeo-notebook/environment.yml
+#see pangeo-license for license terms
+name: pangeo
+channels:
+ - conda-forge
+ - nodefaults
+dependencies:
+ - matplotlib-base
+ - numpy
+

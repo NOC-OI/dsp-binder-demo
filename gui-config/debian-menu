@@ -1,0 +1,31 @@
+<JWM>
+<!-- Automatically generated and updated. Do not touch -->
+      <Menu label="Applications">
+        <Menu label="Graphics">
+          <Program label="dotty" confirm="false">/usr/bin/dotty</Program>
+          <Program label="lefty" confirm="false">/usr/bin/lefty</Program>
+        </Menu>
+        <Menu label="Science">
+          <Menu label="Mathematics">
+            <Program label="Bc" confirm="false">x-terminal-emulator  -T &quot;Bc&quot; -e sh -c &quot;/usr/bin/bc&quot;</Program>
+            <Program label="sympy (Python3)" icon="/usr/share/pixmaps/isympy.xpm" confirm="false">x-terminal-emulator  -T &quot;sympy (Python3)&quot; -e sh -c &quot;python3 /usr/bin/isympy&quot;</Program>
+          </Menu>
+        </Menu>
+        <Menu label="Shells">
+          <Program label="Bash" confirm="false">x-terminal-emulator  -T &quot;Bash&quot; -e sh -c &quot;/bin/bash --login&quot;</Program>
+          <Program label="Dash" confirm="false">x-terminal-emulator  -T &quot;Dash&quot; -e sh -c &quot;/bin/dash -i&quot;</Program>
+          <Program label="Sh" confirm="false">x-terminal-emulator  -T &quot;Sh&quot; -e sh -c &quot;/bin/sh --login&quot;</Program>
+        </Menu>
+        <Menu label="System">
+          <Menu label="Administration">
+            <Program label="Editres" confirm="false">editres</Program>
+            <Program label="Xfontsel" confirm="false">xfontsel</Program>
+            <Program label="Xkill" confirm="false">xkill</Program>
+          </Menu>
+          <Menu label="Monitoring">
+            <Program label="bwm-ng" confirm="false">x-terminal-emulator  -T &quot;bwm-ng&quot; -e sh -c &quot;/usr/bin/bwm-ng&quot;</Program>
+            <Program label="Xev" confirm="false">x-terminal-emulator -e xev</Program>
+          </Menu>
+        </Menu>
+      </Menu>
+</JWM>
